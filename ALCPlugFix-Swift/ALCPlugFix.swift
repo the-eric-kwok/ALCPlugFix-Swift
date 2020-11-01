@@ -77,7 +77,7 @@ class ALCPlugFix {
 
     @objc private func handleWake(_ notification: NSNotification) {
         print("ALCPlugFix::machineDidWake")
-
+        listener.mutePropertyListenerBlock(inNumberAddresses: 0, inAddresses: &listener.muteAddress)
         hdaVerbs.filter {
             $0.onWake && $0.enabled
         }.forEach {
